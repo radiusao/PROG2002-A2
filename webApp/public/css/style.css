@@ -1,0 +1,83 @@
+body{
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+nav > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 20%;
+    overflow: hidden;
+    background-color:#e74c3c;
+    box-shadow: 2px 2px 5px #2c3e50;
+  }
+  nav > ul > li > .link {
+    float: right;
+    margin-right: 2px;
+  }
+  nav > ul > li > .title {
+    float: left;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    font-weight: bolder;
+  }
+  
+  nav > ul > li > a {
+    display: block;
+    padding: 20px 10px;
+    text-decoration: none;
+    color: white;
+    font: 1em sans-serif;
+  }
+  nav > ul > li > a.link:hover{
+    background-color: #ecf0f1;
+    color: #e74c3c;
+  }
+
+.container {
+    padding: 30px 20%;
+}
+.card-fundraiser{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 40%;
+    background-color: #ecf0f1;
+    margin-bottom: 20px;
+
+}
+.card-container{
+    padding: 40px 30px;
+}
+
+.card-title{
+    color: #2980b9;
+    margin-bottom: 5px;
+    font-weight: lighter;
+}
+.card-caption{
+    color: #3498db;
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: lighter;
+}
+.card-target, .card-target-a{
+    font-size: 12px;
+    font-weight: bold;
+
+}
+.card-target{
+    color: #e67e22;
+}
+.card-target-a{
+    color: #00b894;
+}
+.card-city{
+    font-size: 15px;
+    font-weight: bolder;
+    float: right;
+    margin-right: 20px;
+
+}
+.card-category{
+    float: left;
+    margin-left: 30px;
+    font-weight: bold;
+}
