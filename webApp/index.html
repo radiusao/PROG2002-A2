@@ -2,14 +2,13 @@
 <html>
   <head>
       <title>Put Two Fundraiser</title>
-      <link rel="stylesheet" href="public/css/style.css" />
+      <link rel="stylesheet" href="/css/style.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
         <nav>
             <ul>
                 <li><a href="/" class="title">Put Two Fundraiser</a></li>
-                <li><a class="link" href="/fundraiser">Fundraiser</a></li>
                 <li><a class="link" href="/search">Search</a></li>
                 <li><a class="link" href="/">Home</a></li>
 
@@ -18,8 +17,19 @@
     </div>
     <div class="container">
         <h1>Home Page</h1>
-        <h2>Current Active Fundraiser</h2>
+        <img src="/img/home-img-min.jpg" class="res-img" alt="welcome image">
+        <h2>Hello welcome to my fundraising website</h2>
+        <ul>
+          <li>Use the navbar up top to navigate the website</li>
+          <li>On the search page, you can search fundraiser by organiser name or caption, you can also search the previous fundraising run by using the non-active filter</li>
+          <li>Click the view button to donate, this will redirect you to the fundraiser webpage</li>
+          <li>Thank you~!</li>
+        </ul>
+        <button onclick="showNonActive()" id="toggleActiveBtn">show non-active fundraiser</button>
+        <h2 id="isActiveCaption">Only Showing Active Fundraiser:</h2>
         <div id="data"></div>
+    </div>
+    <script type="module" src="/js/home.js"></script>
+    
   </body>
-  <script src="public/js/fetchDb.js"></script>
 </html>

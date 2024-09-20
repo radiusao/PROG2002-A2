@@ -1,4 +1,5 @@
-fetch('http://localhost:3060/api/fundraiser/active')
+export function getDataFromCrowdfundingDb (urlTarget, divTarget){
+fetch(urlTarget)
     .then(response => {
       if (!response.ok) {
         throw new Error("Failed to fetch data");
@@ -6,7 +7,7 @@ fetch('http://localhost:3060/api/fundraiser/active')
       return response.json();
     })
     .then(data => {
-      const dataDiv = document.getElementById('data');
+      const dataDiv = document.getElementById(divTarget);
       dataDiv.innerHTML = "";
   
       if (data.length > 0) {
@@ -18,13 +19,14 @@ fetch('http://localhost:3060/api/fundraiser/active')
             const cardPargTarget = document.createElement("p");
             const cardPargCity = document.createElement("p");
             const cardPargCategory = document.createElement("p");
-
-
+            const viewBtn = document.createElement("a")
             orgTitle.className = "card-title"
             card.className = "card-fundraiser"
             cardContainer.className = "card-container"
             cardPargCaption.className = "card-caption"
-            if(fundraiser.CURRENT_FUNDING >= fundraiser.TARGET_FUNDING){
+
+            // console.log(fundraiser.CURRENT_FUNDING >= fundraiser.TARGET_FUNDING, fundraiser.ORGANIZER)
+            if(fundraiser.CURRENT_FUNDING - fundraiser.TARGET_FUNDING >= 0){ //has to be very specific with float value (98k apperently is more than  100k)
                 cardPargTarget.className = "card-target-a"
             }
             else{
@@ -32,26 +34,48 @@ fetch('http://localhost:3060/api/fundraiser/active')
             }
             cardPargCity.className = "card-city"
             cardPargCategory.className = "card-category"
+            
+            if(fundraiser.ACTIVE == 1){
+              orgTitle.textContent =`${fundraiser.ORGANIZER}`
+              card.className = "card-colour-active"
+              cardPargTarget.textContent = ` Current: $${fundraiser.CURRENT_FUNDING.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} (Goal: $${fundraiser.TARGET_FUNDING.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")})`;
 
-            orgTitle.textContent =`${fundraiser.ORGANIZER}`
+            }
+            else{
+              orgTitle.innerHTML =`${fundraiser.ORGANIZER} <span class ="is-active">(ended)</span>`
+              card.className = "card-colour-not-active"
+              cardPargTarget.textContent = ` Raised $${fundraiser.CURRENT_FUNDING.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} out of $${fundraiser.TARGET_FUNDING.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+
+            }
+
             cardPargCaption.textContent = `${fundraiser.CAPTION}`;
-            cardPargTarget.textContent = ` Current :$${fundraiser.CURRENT_FUNDING.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} (Goal: $${fundraiser.TARGET_FUNDING.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")})`;
             cardPargCity.innerHTML = `<i class="fa fa-location-arrow"></i> ${fundraiser.CITY}`
             cardPargCategory.textContent = `${fundraiser.CATEGORY}`
+            viewBtn.innerHTML = "View"
+            viewBtn.href = `http://localhost:3060/api/fundraiser/${fundraiser.ID}`
 
             cardContainer.appendChild(orgTitle)
             cardContainer.appendChild(cardPargCaption)
             cardContainer.appendChild(cardPargTarget)
+            if(data.length > 1){
+              cardContainer.appendChild(viewBtn)
+            }
             card.appendChild(cardPargCity)
             card.appendChild(cardPargCategory)
             card.appendChild(cardContainer)
             dataDiv.appendChild(card);
         });
       } else {
-        dataDiv.textContent = "No FUNDRAISER data";
+        const errorMsg = document.createElement("p");
+        errorMsg.style.color = 'red'
+        errorMsg.style.fontWeight = 'bolder'
+        errorMsg.textContent = "No Fundraiser Data Found"
+        dataDiv.appendChild(errorMsg)
       }
     })
     .catch(error => {
       console.error("Error fetching data", error);
-      document.getElementById('data').textContent = "Failed to load data: " + error;
+      document.getElementById(divTarget).textContent = "Failed to load data: " + error;
     });
+};
+

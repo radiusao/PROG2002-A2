@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Put Two Fundraiser</title>
+      <link rel="stylesheet" href="/css/style.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+        <nav>
+            <ul>
+                <li><a href="/" class="title">Put Two Fundraiser</a></li>
+                <li><a class="link" href="/search">Search</a></li>
+                <li><a class="link" href="/">Home</a></li>
+
+              </ul>
+        </nav>
+    </div>
+    <div class="container">
+          <h1>Search Page</h1>
+          <p>Search by:</p>
+          <button onclick="showNonActive()" id="toggleActiveBtn">Show only active</button>
+          <button onclick="showFilter()" id="toggleFilter">Fundraiser Name</button>
+          <div>
+            <input type="text" id="inputSearch" placeholder="Search Fundraiser Name">
+            <button onclick="searchBtnFundraiser()" id="fundraiserSearch">Search</button>
+            <button onclick="clearBtn()" id="fundraiserSearch" class="btn-not-active">Clear</button>
+          </div>
+          <div id="data"></div>
+    </div>
+    <script type="module" src="/js/searchDb.js"></script>
+  </body>
+</html>
