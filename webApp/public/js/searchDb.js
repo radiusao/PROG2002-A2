@@ -4,7 +4,9 @@ let isToggleActive = true
 let isToggleFilter = true
 
 document.getElementById('inputSearch').addEventListener('input', ()=>{ //event listener if user write on the input text, this will auto search the user input
-  document.getElementById('fundraiserSearch').click()
+  if(document.getElementById('inputSearch').value != ''){
+    document.getElementById('fundraiserSearch').click()
+  }
 })
 
 window.showNonActive = () =>{ //toggle button for show active
