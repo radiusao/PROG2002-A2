@@ -1,35 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <title>Put Two Fundraiser</title>
-      <link rel="stylesheet" href="/css/style.css" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body>
-        <nav>
-            <ul>
-                <li><a href="/" class="title">Put Two Fundraiser</a></li>
-                <li><a class="link" href="/search">Search</a></li>
-                <li><a class="link" href="/">Home</a></li>
 
-              </ul>
-        </nav>
+<head>
+  <title>Put Two Cents Fundraiser</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/home.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="/" class="title">Put Two Cents Fundraiser</a></li>
+      <li><a class="link" href="/search">Search</a></li>
+      <li><a class="link" href="/">Home</a></li>
+
+    </ul>
+  </nav>
+  </div>
+  <div class="jumbotron">
+    <div>
+      <h2 class="jumbotron-text">My two cents; start making a difference, make a donation!</h2>
     </div>
-    <div class="container">
-        <h1>Home Page</h1>
-        <img src="/img/home-img-min.jpg" class="res-img" alt="welcome image">
-        <h2>Hello welcome to my fundraising website</h2>
+  </div>
+  <div class="container">
+    <h1>Home Page</h1>
+    <button onclick="showNonActive()" id="toggleActiveBtn">show non-active fundraiser</button>
+    <button onclick="showHelp()">?</button>
+    <h2 id="isActiveCaption">Only Showing Active Fundraiser:</h2>
+    <div id="data" class="grid-container"></div>
+  </div>
+  <div id="pop-up-instruction" class="fade-anim">
+    <div class="popup-container">
+      <h1 class="popup-title">Hi there!</h1>
+      <h2>This website is best experienced on 1920 x 1080 screen</h2>
+      <h3>This instruction will only be shown once, to open up this instruction again please click the blue "?" button
+      </h3>
+      <div class="instruction-text">
+        <h2>How to use Home Page:</h2>
         <ul>
-          <li>Use the navbar up top to navigate the website</li>
-          <li>On the search page, you can search fundraiser by organiser name or caption, you can also search the previous fundraising run by using the non-active filter</li>
-          <li>Click the view button to donate, this will redirect you to the fundraiser webpage</li>
-          <li>Thank you~!</li>
+          <li>You can navigate to the search page using the navbar above</li>
+          <li>By default the home page only shows active fundraiser, to show both non-active and active fundraiser
+            toggle the "show non-active fundraiser" blue button</li>
+          <li>To go to the fundraiser page, simply click the blue "view" button</li>
         </ul>
-        <button onclick="showNonActive()" id="toggleActiveBtn">show non-active fundraiser</button>
-        <h2 id="isActiveCaption">Only Showing Active Fundraiser:</h2>
-        <div id="data"></div>
+        <h2>How to use Search Page:</h2>
+        <ul>
+          <li>You can navigate back to home page using the navbar above</li>
+          <li>Use the "Show only Active" blue button toggle to adjust if you'd like to show active or both active and
+            non-active fundraiser</li>
+          <li>Use the "Fundraiser Name blue button toggle to switch between searching by the fundraiser name or the
+            caption of the fundraiser"</li>
+          <li>Typing on the text box will automatically search the data base according to your filter and search key (no
+            need to click the search button)</li>
+          <li>Changing the 2 blue filter button will also update the search</li>
+          <li>Use the red "clear" button to clear up the search page</li>
+        </ul>
+      </div>
+      <h2>Press the red close button on the top right to proceed</h2>
+      <button id="popup-btn" onclick="closeInstruction()">close</button>
     </div>
-    <script type="module" src="/js/home.js"></script>
-    
-  </body>
+  </div>
+  <script type="module" src="/js/home.js"></script>
+</body>
+
 </html>

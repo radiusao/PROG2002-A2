@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fundraiser-style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
     <nav>
         <ul>
             <li><a href="/" class="title">Put Two Fundraiser</a></li>
             <li><a class="link" href="/search">Search</a></li>
             <li><a class="link" href="/">Home</a></li>
-
-          </ul>
+        </ul>
     </nav>
-    <div class="container">
-        <%
-        for i=1 to Request.QueryString("n").Count
-          Response.Write(Request.QueryString("n")(i) & "<br>")
-        next
-        %>
-    </div>
+    <script>
+    </script>
+    <div id="data" class="data-container"></div>
     <script type="module" src="/js/fundraiser.js"></script>
 
 </body>
+
 </html>

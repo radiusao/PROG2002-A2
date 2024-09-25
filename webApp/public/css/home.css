@@ -1,0 +1,49 @@
+div.card-colour-active,
+.card-colour-not-active {
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+div.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px 10px;
+
+}
+
+div.jumbotron {
+    width: 100vw;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/img/home-img-min.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+div.jumbotron>div>h2.jumbotron-text {
+    background-color: aliceblue;
+    font-size: 32px;
+    padding: 5px;
+    font-style: italic;
+    font-weight: 100;
+}
+
+@media screen and (max-width: 1340px) {
+    div.grid-container {
+        grid-template-columns: auto auto;
+
+    }
+}
+
+@media screen and (max-width: 860px) {
+    div.grid-container {
+        grid-template-columns: auto;
+
+    }
+}

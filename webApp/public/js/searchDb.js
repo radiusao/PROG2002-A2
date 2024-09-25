@@ -1,9 +1,13 @@
 import {getDataFromCrowdfundingDb} from './fetchDb.js';
 
-var isToggleActive = true
-var isToggleFilter = true
+let isToggleActive = true
+let isToggleFilter = true
 
-window.showNonActive = () =>{
+document.getElementById('inputSearch').addEventListener('input', ()=>{ //event listener if user write on the input text, this will auto search the user input
+  document.getElementById('fundraiserSearch').click()
+})
+
+window.showNonActive = () =>{ //toggle button for show active
   if(isToggleActive){
     document.getElementById('toggleActiveBtn').innerHTML = "Show non-active fundraiser"
     isToggleActive = false
@@ -14,13 +18,13 @@ window.showNonActive = () =>{
   }
   updateSearchBtn()
 }
-window.showFilter = () =>{
+window.showFilter = () =>{ //toggle button for show caption or organiser name
   if(isToggleFilter){
     document.getElementById('toggleFilter').innerHTML = "Caption"
     isToggleFilter = false
   }
   else{
-    document.getElementById('toggleFilter').innerHTML = "Fundraiser Name"
+    document.getElementById('toggleFilter').innerHTML = "Organiser"
     isToggleFilter = true
   }
   updateSearchBtn()
@@ -38,6 +42,7 @@ function updateSearchBtn(){
   else if(!isToggleActive && !isToggleFilter){
     document.getElementById('fundraiserSearch').setAttribute("onclick","searchBtnCaptionNotActive()")
   }
+  document.getElementById('fundraiserSearch').click()
 }
 
 window.clearBtn = ()=>{
@@ -58,4 +63,13 @@ window.searchBtnCaption = ()=>{
 }
 window.searchBtnCaptionNotActive = ()=>{
   getDataFromCrowdfundingDb(`http://localhost:3060/api/fundraiser/search-caption/${document.getElementById('inputSearch').value}`, 'data');
+}
+
+if(localStorage.getItem("firstVisit") != 'false') document.getElementById("pop-up-instruction").style.display = 'flex';
+localStorage.setItem("firstVisit", "false")
+window.closeInstruction = () =>{
+    document.getElementById("pop-up-instruction").style.display = 'none'
+}
+window.showHelp = ()=>{
+  document.getElementById("pop-up-instruction").style.display = 'flex'
 }
