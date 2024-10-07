@@ -18,17 +18,19 @@
             <li><a class="link" href="/">Home</a></li>
         </ul>
     </nav>
-
-    <div>
-        <div class="container">
-            <div class="form">
-                <label for="amount">Amount:</label><br>
-                <input type="number" id="amount" name="amount" min="5" required><br><br>
-                <label for="giver">Giver:</label><br>
-                <input type="text" id="giver" name="giver" required><br>
-                <button onclick="postFetch()">Submit</button>
-            </div>
-            <script src="/js/postFetch.js"></script>
+    <div class="jumbotron">
+        <div>
+            <h2 class="jumbotron-text">Donation</h2>
         </div>
+    </div>
+    <div class="container">
+        <div class="form">
+            <label for="amount">Amount:</label><br>
+            <input type="number" id="amount" name="amount" min="5" required><br><br>
+            <label for="giver">Name:</label><br>
+            <input type="text" id="giver" name="giver" required><br>
+            <button onclick="postFetch()">Submit</button>
+        </div>
+        <script src="/js/postFetch.js"></script>
     </div>
 </body>

@@ -27,7 +27,9 @@ app.get("/donate/:id",(req,res)=>{
 app.get("/admin",(req,res)=>{
   res.sendFile(path.join(__dirname,"admin.html"));
 });
-
+app.get("/admin/fundraiser-edit/:id",(req,res)=>{
+  res.sendFile(path.join(__dirname,"admin-edit.html"));
+});
 
 app.listen(8080,()=>{
   console.log("Running in 8080");

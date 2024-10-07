@@ -12,44 +12,39 @@
   <nav>
     <ul>
       <li><a href="/admin" class="title">Put Two Cents Fundraiser</a></li>
-      <li><a class="link" href="/admin/">Home</a></li>
-
+      <li><a class="link" href="/admin">Home</a></li>
     </ul>
   </nav>
-  </div>
-  <div class="jumbotron">
-    <div>
-      <h2 class="jumbotron-text">Hi Admin!</h2>
-    </div>
-  </div>
   <div class="container">
-    <h1>Add new fundraiser</h1>
     <div>
+        <label for="id">ID:</label><br>
+        <input type="text" id="fID" name="organiser" disabled><br><br>
+
         <label for="organiser">Organiser:</label><br>
         <input type="text" id="organiser" name="organiser" required><br><br>
 
         <label for="caption">Caption:</label><br>
         <input type="text" id="caption" name="caption" required><br><br>
 
-        <label for="target">Target Amount:</label><br>
+        <label for="target">Target Funding:</label><br>
         <input type="number" id="target" name="target" required><br><br>
+
+        <label for="currentFunding">Current Funding:</label><br>
+        <input type="number" id="currentFunding" name="currentFunding" disabled><br><br>
 
         <label for="city">City:</label><br>
         <input type="text" id="city" name="city" required><br><br>
 
+        <label for="active">Active:</label><br>
+        <input type="number" id="active" name="active" required><br><br>
+
         <label for="category">Category:</label><br>
         <select id="category" name="category" required>
             <option value="">Select a category</option>
-        </select><br><br>
-        <button onclick="addFund()" style="background-color: green;">add fundraiser</button>
-    </div>
-    <h1>Edit Current Fundraiser</h1>
-    <h2 id="isActiveCaption">Only Showing Active Fundraiser:</h2>
-    <button onclick="showNonActive()" id="toggleActiveBtn">show non-active fundraiser</button>
-    <div id="data" class="grid-container"></div>
+        </select> <br><br>
+        <button onclick="changeFund()">Submit</button>
+        <button style="background-color: #d63031;" onclick="deleteFund()">delete</button>
+        </div>
   </div>
-  </div>
-  <script type="module" src="/js/adminfetch.js"></script>
+  <script src="/js/admin-edit.js"></script>
 </body>
-
-</html>

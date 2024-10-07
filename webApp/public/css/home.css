@@ -11,28 +11,7 @@ div.grid-container {
 
 }
 
-div.jumbotron {
-    width: 100vw;
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("/img/home-img-min.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #000000;
-    margin: 0;
-    padding: 0;
-}
 
-div.jumbotron>div>h2.jumbotron-text {
-    background-color: aliceblue;
-    font-size: 32px;
-    padding: 5px;
-    font-style: italic;
-    font-weight: 100;
-}
 
 @media screen and (max-width: 1340px) {
     div.grid-container {

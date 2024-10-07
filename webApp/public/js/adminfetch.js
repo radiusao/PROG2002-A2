@@ -161,6 +161,7 @@ window.addFund = () => {
             if (response.ok) {
                 // If the response is OK, alert success
                 alert('Fundraiser added successfully')
+                window.location.href = `http://localhost:8080/admin/`
             } else {
                 // Handle any errors
                 alert('Failed to add fundraiser')
