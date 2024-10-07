@@ -8,6 +8,6 @@ app.use(cors({ origin: 'http://localhost:8080' }));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:false}));
 
-app.use("/api/fundraiser", crowdfundingApi);
-app.listen(3060);
-console.log("Server up and running on port 3060");
+app.use("/api/admin", crowdfundingApi);
+app.listen(3000);
+console.log("Server up and running on port 3000");

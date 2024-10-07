@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Put Two Cents Fundraiser</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/home.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="/" class="title">Put Two Cents Fundraiser</a></li>
+      <li><a class="link" href="/search">Search</a></li>
+      <li><a class="link" href="/">Home</a></li>
+
+    </ul>
+  </nav>
+  </div>
+  <div class="jumbotron">
+    <div>
+      <h2 class="jumbotron-text">Hi Admin!</h2>
+    </div>
+  </div>
+  <div class="container">
+    <h1>Home Page</h1>
+    <div>
+        <label for="organiser">Organiser:</label>
+        <input type="text" id="organiser" name="organiser" required><br><br>
+
+        <label for="caption">Caption:</label>
+        <input type="text" id="caption" name="caption" required><br><br>
+
+        <label for="target">Target Amount:</label>
+        <input type="number" id="target" name="target" required><br><br>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required><br><br>
+
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+            <option value="">Select a category</option>
+        </select><br><br>
+        <button onclick="addFund()" style="background-color: green;">add fundraiser</button>
+    </div>
+    <h2 id="isActiveCaption">Only Showing Active Fundraiser:</h2>
+    <button onclick="showNonActive()" id="toggleActiveBtn">show non-active fundraiser</button>
+    <div id="data" class="grid-container"></div>
+  </div>
+  </div>
+  <script type="module" src="/js/adminfetch.js"></script>
+</body>
+
+</html>

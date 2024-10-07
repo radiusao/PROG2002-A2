@@ -4,17 +4,14 @@ const path=require("path");
 const app=express();
 
   
-//to parse URL-encoded & JSON data 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 
 
 
-//to serve static files
 app.use(express.static(path.join(__dirname, 'public/')));
 
-//route to serve index.html
 app.get("/",(req,res)=>{
   res.sendFile(path.join(__dirname,"index.html"));
 });
@@ -24,8 +21,13 @@ app.get("/search",(req,res)=>{
 app.get("/fundraiser/:id",(req,res)=>{
   res.sendFile(path.join(__dirname,"fundraiser.html"));
 });
+app.get("/donate/:id",(req,res)=>{
+  res.sendFile(path.join(__dirname,"donate.html"));
+});
+app.get("/admin",(req,res)=>{
+  res.sendFile(path.join(__dirname,"admin.html"));
+});
 
-//we will add more routes here
 
 app.listen(8080,()=>{
   console.log("Running in 8080");

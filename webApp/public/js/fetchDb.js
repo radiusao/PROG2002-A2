@@ -22,12 +22,16 @@ export function getDataFromCrowdfundingDb(urlTarget, divTarget) { //exporting th
           const cardPargCity = document.createElement("p");
           const cardPargCategory = document.createElement("p");
           const viewBtn = document.createElement("a")
+          const cardUpdate = document.createElement("p");
+
+
           card.className = "card-fundraiser"
           orgTitle.className = "card-title"
           cardContainer.className = "card-container"
           cardPargCaption.className = "card-caption"
           cardPargCity.className = "card-city"
           cardPargCategory.className = "card-category"
+          cardUpdate.className = 'card-time'
 
           //making the text green if funding reached or orange if now been reached
           // console.log(fundraiser.CURRENT_FUNDING >= fundraiser.TARGET_FUNDING, fundraiser.ORGANIZER)
@@ -49,7 +53,9 @@ export function getDataFromCrowdfundingDb(urlTarget, divTarget) { //exporting th
             cardPargTarget.textContent = ` Raised $${fundraiser.CURRENT_FUNDING.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} out of $${fundraiser.TARGET_FUNDING.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
 
           }
-
+          if(fundraiser.LAST_UPDATED){
+            cardUpdate.innerHTML = `Last Updated: ${fundraiser.LAST_UPDATED.split('T')[0]}`
+          }
           //assigning text value
           cardPargCaption.textContent = `${fundraiser.CAPTION}`;
           cardPargCity.innerHTML = `<i class="fa fa-location-arrow"></i> ${fundraiser.CITY}`
@@ -60,6 +66,7 @@ export function getDataFromCrowdfundingDb(urlTarget, divTarget) { //exporting th
 
           //constructing card
           cardContainer.appendChild(orgTitle)
+          cardContainer.appendChild(cardUpdate)
           cardContainer.appendChild(cardPargCaption)
           cardContainer.appendChild(cardPargTarget)
 
@@ -70,9 +77,10 @@ export function getDataFromCrowdfundingDb(urlTarget, divTarget) { //exporting th
 
           //for fundraiser page to show donate button if active or no donate button if not active
           if (window.location.pathname.split('/')[1] == 'fundraiser' && fundraiser.ACTIVE == 1) {
-            const cardDonate = document.createElement('button');
-            cardDonate.setAttribute('onclick', 'alert("This Feature is under construction")')
+            const cardDonate = document.createElement('a');
+            cardDonate.href = `http://localhost:8080/donate/${fundraiser.ID}`
             cardDonate.innerHTML = 'Donate Now'
+            cardDonate.className = 'btn'
             cardContainer.appendChild(cardDonate)
           }
 

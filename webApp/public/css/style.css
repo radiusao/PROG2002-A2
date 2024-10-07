@@ -78,7 +78,10 @@ h2.card-caption {
     font-size: 18px;
     font-weight: lighter;
 }
-
+p.card-time{
+    margin: 0px 0 5px 0;
+    font-size: smaller;
+}
 p.card-target,
 p.card-target-a {
     font-size: 12px;
